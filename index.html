@@ -16,6 +16,10 @@
                 /* background-color: black;
                 height: 100% */
             }
+            p {
+                color:white;
+            }
+
             .left-div {
                 float: left;
                 height:100vh;
@@ -54,6 +58,10 @@
             img {
                 -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
                 filter: grayscale(100%);
+                /* opacity: 0.8; */
+            }
+            img:hover {
+                /* opacity: 1.0; */
             }
 
             /* FLEXBOX FOR IMAGES TO FILL DIVS */
@@ -70,11 +78,16 @@
                 min-height: 100%;
             }
             .img-overlay {
-                position: absolute;
-                /*max-width: 500px;*/
+                position:fixed;
                 background-color:black;
-                width: 200px;
-                vertical-align: top;
+                height:100%;
+                width:25%;
+                top:0;
+                right:0;
+                opacity: 0.5;
+            }
+            .img-overlay:hover {
+                opacity: 1.0;
             }
         </style>
 
