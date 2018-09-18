@@ -1,156 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <style>
-            body, html {
-                /* background-color: black;
-                height: 100% */
-            }
-            p {
-                color:white;
-            }
-
-            .left-div {
-                float: left;
-                height:100vh;
-                width:100vh;
-                background-color: black;
-            }
-            .top-div {
-                display:flex;
-                height:250px;
-                background: url(https://images.pexels.com/photos/86695/sky-clouds-outdoors-scenic-86695.jpeg);
-                -moz-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
-                -o-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
-                -webkit-filter: grayscale(100%);
-                filter: gray;
-                filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
-                justify-content: space-evenly;
-            }
-            .middle-div{
-                height:250px;
-                background-color: #892ce338;
-                background-image: url(https://images.pexels.com/photos/66874/landscape-meadow-field-mountains-66874.jpeg);
-            }
-            .bottom-div{
-                height:250px;
-                background-color: #892ce347;
-                background-image: url(https://www.publicdomainpictures.net/pictures/160000/velka/vagues-et-ocean-1457216768S53.jpg);
-            }
-            .right-div {
-                display:block;
-                background-color: #892ce32e;
-                height:100vh;
-            }
-            .container {
-                height:250px;
-                width:500px;
-                padding-left:25%;
-                padding-top: 20px;
-            }
-            .subcontainer {
-                display: inline-block;
-                height: 250px;
-                width: 250px;
-                border-radius:50%;
-                background-repeat: no-repeat;
-                background-position: center center;
-                background-size: cover;
-            }
-            img {
-                -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-                filter: grayscale(100%);
-                /* opacity: 0.8; */
-                max-width:100%;
-                max-height:100%;
-
-            }
-            img:hover {
-                /* opacity: 1.0; */
-            }
-
-            /* FLEXBOX FOR IMAGES TO FILL DIVS */
-            .fill {
-                display: flex;
-                flex-direction: row;
-                /*                justify-content: center;*/
-                height:inherit;
-            }
-            .fill img {
-                min-width: 100%;
-                min-height: 100%;
-            }
-            .img-overlay {
-                position:fixed;
-                background-color:black;
-                height:50%;
-                width:19%;
-                top:0;
-                opacity: 0.5;
-            }
-            .img-overlay:hover {
-                opacity: 1.0;
-            }
-            .caption-text{
-                color:white;
-                bottom:0px;
-            }
-        </style>
-
-        <title>mhamilton.me</title>
-
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-
+        <meta charset="UTF-8">
+        <title>Flex Panels 💪</title>
+        <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <div class="top-div">
-            <div class="subcontainer" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg)" >
-                <div class="caption-text" style="display:flex; position:absolute; bottom:5%;">Albert</div>
+        <style>
+            html {
+                box-sizing: border-box;
+                background:#ffc600;
+                font-family:'helvetica neue';
+                font-size: 20px;
+                font-weight: 200;
+            }
+            body {
+                margin: 0;
+            }
+            *, *:before, *:after {
+                box-sizing: inherit;
+            }
+            
+            profile {
+/*                background-size: contain;*/
+                
+                width: 200px;
+                max-width: 100%;
+                max-height: 200px;
+/*
+                max-width:100%;
+                align-items: center;
+                flex-flow: row nowrap;
+                display: flex;
+                object-fit: contain;
+*/
+            }
+
+            .panels {
+                min-height:100vh;
+                overflow: hidden;
+                display: flex;
+            }
+
+            .panel {
+                background:#6B0F9C;
+                box-shadow:inset 0 0 0 5px rgba(255,255,255,0.1);
+                color:white;
+                text-align: center;
+                align-items:center;
+                /* Safari transitionend event.propertyName === flex */
+                /* Chrome + FF transitionend event.propertyName === flex-grow */
+                transition:
+                    font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+                    flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+                    background 0.2s;
+                font-size: 20px;
+                background-size:cover;
+                background-position:center;
+                flex: 1;
+                justify-content: center;
+                align-content: center;
+                display: flex;
+                flex-direction: column;
+                border: 2px;
+                border-color: red;
+            }
+
+            /*
+            .panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
+            .panel2 { background-image:url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500); }
+            .panel3 { background-image:url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d); }
+            .panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
+            .panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
+            */
+            
+            .panel1 { background-image:url(https://source.unsplash.com/TpHmEoVSmfQ/1500x1500); }
+            .panel2 { background-image:url(https://source.unsplash.com/JdwgLutpt2Q/1500x1500); }
+            .panel3 { background-image:url(https://source.unsplash.com/kuRDpbA7SMU/1500x1500); }
+            .panel4 { background-image:url(https://source.unsplash.com/sSuxFPPBLUk/1500x1500); }
+            .panel5 { background-image:url(https://source.unsplash.com/m3oLLB7w3Xg/1500x1500); }
+
+            .opaque {
+                -webkit-filter: grayscale(50%);
+                filter: grayscale(50%);
+            }
+            
+            .albert { background-image:url(https://upload.wikimedia.org/wikipedia/commons/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg)}
+            .higgs { background-image:url(https://upload.wikimedia.org/wikipedia/commons/5/5f/Nobel_Prize_24_2013.jpg)}
+            .neil { background-image:url(https://upload.wikimedia.org/wikipedia/commons/f/f7/Tyson_-_Apollo_40th_anniversary_2009.jpg)}
+            .stephen { background-image:url(https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg)}
+            .musk { background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/800px-Elon_Musk_2015.jpg)}
+            /*
+
+            albert: https://upload.wikimedia.org/wikipedia/commons/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg
+            neil: https://upload.wikimedia.org/wikipedia/commons/f/f7/Tyson_-_Apollo_40th_anniversary_2009.jpg
+            stephen: https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg
+            higgs: https://upload.wikimedia.org/wikipedia/commons/5/5f/Nobel_Prize_24_2013.jpg
+            musk: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/800px-Elon_Musk_2015.jpg
+            */
+
+            .panel > * {
+                margin:0;
+                width: 100%;
+                transition:transform 0.5s;
+                flex: 1 0 auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+            .panel > *:first-child {transform: translateY(-100%);}
+            .panel.open-active > *:first-child {transform: translateY(0);}
+            .panel > *:last-child {transform: translateY(100%);}
+            .panel.open-active > *:last-child {transform: translateY(0);}
+
+
+            .panel p {
+                text-transform: uppercase;
+                font-family: 'Amatic SC', cursive;
+                text-shadow:0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+                font-size: 2em;
+            }
+            .panel p:nth-child(2) {
+                font-size: 4em;
+            }
+
+            .panel.open {
+                font-size:40px;
+                flex: 5;
+            }
+
+        </style>
+
+
+        <div class="panels">
+            <div class="panel panel1 opaque">
+                <p>Albert</p>
+                <p class="albert profile"></p>
+                <p>Einstein</p>
             </div>
-            <div class="subcontainer" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/f/f7/Tyson_-_Apollo_40th_anniversary_2009.jpg)">
-                <div class="caption-text" style="display:flex; position:absolute; bottom:5%;">Neil</div>
+            <div class="panel panel2 opaque">
+                <p>Neil</p>
+                <p class="neil profile opaque"></p>
+                <p>deGrasse Tyson</p>
             </div>
-            <div class="subcontainer" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg)">
-                <div class="caption-text" style="display:flex; position:absolute; bottom:5%;">Steve</div>
+            <div class="panel panel3 opaque">
+                <p>Peter</p>
+                <p class="higgs profile opaque"></p>
+                <p>Higgs</p>
             </div>
-            <div class="subcontainer" style="background-image:url(https://upload.wikimedia.org/wikipedia/commons/5/5f/Nobel_Prize_24_2013.jpg)">
-                <div class="caption-text" style="display:flex; position:absolute; bottom:5%;">Higgs</div>
+            <div class="panel panel4 opaque">
+                <p>Stephen</p>
+                <p class="stephen profile"></p>
+                <p>Hawking</p>
+            </div>
+            <div class="panel panel5 opaque">
+                <p>Elon</p>
+                <p class="musk profile"></p>
+                <p>Musk</p>
             </div>
         </div>
-        <div class="middle-div">
-            <img src="" alt="">
-        </div>
-        <div class="bottom-div">
-            <img src="" alt="">
-        </div>
+
+        <script>
+            const panels = document.querySelectorAll('.panel');
+
+            function toggleActive(e) {
+                if(e.propertyName.includes('flex')) {
+                    this.classList.toggle('open-active')
+                }
+            }
+
+            function toggleOpen() {
+                this.classList.toggle('open');
+            }
+            
+            function makeLight() {
+                this.classList.toggle('opaque');
+            }
+
+            panels.forEach(panel => panel.addEventListener('click' , toggleOpen));
+            panels.forEach(panel => panel.addEventListener('transitionend' , toggleActive));
+            panels.forEach(panel => panel.addEventListener('click' , makeLight));
+            
+
+        </script>
+
+
 
     </body>
 </html>
-
-
-<!-- IMAGES 
-sky color: 
-https://images.pexels.com/photos/262152/pexels-photo-262152.jpeg?cs=srgb&dl=beach-black-bw-262152.jpg&fm=jpg
-
-clouds: 
-https://images.pexels.com/photos/86695/sky-clouds-outdoors-scenic-86695.jpeg
-
-fields: 
-https://images.pexels.com/photos/66874/landscape-meadow-field-mountains-66874.jpeg
-
-waves: 
-https://www.publicdomainpictures.net/pictures/250000/velka/ocean-waves-background.jpg
-https://www.publicdomainpictures.net/pictures/160000/velka/vagues-et-ocean-1457216768S53.jpg
-
-profiles:
-albert: https://upload.wikimedia.org/wikipedia/commons/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg
-neil: https://upload.wikimedia.org/wikipedia/commons/f/f7/Tyson_-_Apollo_40th_anniversary_2009.jpg
-stephen: https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg
-higgs: https://upload.wikimedia.org/wikipedia/commons/5/5f/Nobel_Prize_24_2013.jpg
-
-
--->
