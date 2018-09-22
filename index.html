@@ -1,182 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8">
-        <title>Flex Panels 💪</title>
+        <title>mhamilton.me</title>
         <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+        <link href='index.css' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <style>
-            html {
-                box-sizing: border-box;
-                background:#ffc600;
-                font-family:'helvetica neue';
-                font-size: 20px;
-                font-weight: 200;
-            }
-            body {
-                margin: 0;
-            }
-            *, *:before, *:after {
-                box-sizing: inherit;
-            }
-            
-            .profile {
-                background-size: cover;
-                filter: grayscale(100%);
-            }
-
-            .panels {
-                min-height:100vh;
-                overflow: hidden;
-                display: flex;
-            }
-
-            .panel {
-                background:#6B0F9C;
-                box-shadow:inset 0 0 0 5px rgba(255,255,255,0.1);
-                color:white;
-                text-align: center;
-                align-items:center;
-                /* Safari transitionend event.propertyName === flex */
-                /* Chrome + FF transitionend event.propertyName === flex-grow */
-                transition:
-                    font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
-                    flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
-                    background 0.2s;
-                font-size: 20px;
-                background-size:cover;
-                background-position:center;
-                flex: 1;
-                justify-content: center;
-                align-content: center;
-                display: flex;
-                flex-direction: column;
-                border: 2px;
-                border-color: red;
-            }
-
-            /*
-            .panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
-            .panel2 { background-image:url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500); }
-            .panel3 { background-image:url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d); }
-            .panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
-            .panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
-            */
-            
-            .panel1 { background-image:url(https://source.unsplash.com/TpHmEoVSmfQ/1500x1500); }
-            .panel2 { background-image:url(https://source.unsplash.com/JdwgLutpt2Q/1500x1500); }
-            .panel3 { background-image:url(https://source.unsplash.com/kuRDpbA7SMU/1500x1500); }
-            .panel4 { background-image:url(https://source.unsplash.com/sSuxFPPBLUk/1500x1500); }
-            .panel5 { background-image:url(https://source.unsplash.com/m3oLLB7w3Xg/1500x1500); }
-
-            .opaque {
-                -webkit-filter: grayscale(50%);
-                filter: grayscale(50%);
-            }
-            
-            .albert { background-image:url(https://upload.wikimedia.org/wikipedia/commons/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg)}
-            .higgs { background-image:url(https://upload.wikimedia.org/wikipedia/commons/5/5f/Nobel_Prize_24_2013.jpg)}
-            .neil { background-image:url(https://upload.wikimedia.org/wikipedia/commons/f/f7/Tyson_-_Apollo_40th_anniversary_2009.jpg)}
-            .stephen { background-image:url(https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg)}
-            .musk { background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/800px-Elon_Musk_2015.jpg)}
-            /*
-
-            albert: https://upload.wikimedia.org/wikipedia/commons/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg
-            neil: https://upload.wikimedia.org/wikipedia/commons/f/f7/Tyson_-_Apollo_40th_anniversary_2009.jpg
-            stephen: https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg
-            higgs: https://upload.wikimedia.org/wikipedia/commons/5/5f/Nobel_Prize_24_2013.jpg
-            musk: https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/800px-Elon_Musk_2015.jpg
-            */
-
-            .panel > * {
-                margin:0;
-                width: 100%;
-                transition:transform 0.5s;
-                flex: 1 0 auto;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-            }
-
-            .panel > *:first-child {transform: translateY(-100%);}
-            .panel.open-active > *:first-child {transform: translateY(0);}
-            .panel > *:last-child {transform: translateY(100%);}
-            .panel.open-active > *:last-child {transform: translateY(0);}
-
-
-            .panel p {
-                text-transform: uppercase;
-                font-family: 'Amatic SC', cursive;
-                text-shadow:0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
-                font-size: 2em;
-            }
-            .panel p:nth-child(2) {
-                font-size: 4em;
-            }
-
-            .panel.open {
-                font-size:40px;
-                flex: 5;
-            }
-
-        </style>
-
-
-        <div class="panels">
-            <div class="panel panel1 opaque">
-                <p>Albert</p>
-                <p class="albert profile"></p>
-                <p>Einstein</p>
+        <header>
+            <div class="header">
+                <a href="#default" class="logo">mhamilton.me website development</a>
+                <div class="header-right">
+                    <a class="active" href="#home">Home</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#about">About</a>
+                </div>
             </div>
-            <div class="panel panel2 opaque">
-                <p>Neil</p>
-                <p class="neil profile opaque"></p>
-                <p>deGrasse Tyson</p>
-            </div>
-            <div class="panel panel3 opaque">
-                <p>Peter</p>
-                <p class="higgs profile opaque"></p>
-                <p>Higgs</p>
-            </div>
-            <div class="panel panel4 opaque">
-                <p>Stephen</p>
-                <p class="stephen profile"></p>
-                <p>Hawking</p>
-            </div>
-            <div class="panel panel5 opaque">
-                <p>Elon</p>
-                <p class="musk profile"></p>
-                <p>Musk</p>
+        </header>
+        
+        <!--BEGIN CARDS-->
+        <div class="container">
+            <div class="cards">
+                <a class="card" href="#">
+                    <span class="card-header" style="background-image: url(http://placeimg.com/400/200/animals);">
+                        <span class="card-title">
+                            <h3>This is a title for a card</h3>
+                        </span>
+                    </span>
+                    <span class="card-summary">
+                        A summary will also be present. Usually two to three brief sentences about the content on the detail page.
+                    </span>
+                    <span class="card-meta">
+                        Published: June 18th, 2015
+                    </span>
+                </a>
+
+                <a class="card" href="#">
+                    <span class="card-header" style="background-image: url(http://placeimg.com/640/480/nature);">
+                        <span class="card-title">
+                            <h3>This is a title for a card that is a bit longer in length</h3>
+                        </span>
+                    </span>
+                    <span class="card-summary">
+                        Each card is created from an &lt;a&gt; tag so the whole card is linked.
+                    </span>
+                    <span class="card-meta">
+                        Published: June 18th, 2015
+                    </span>
+                </a>
+
+                <a class="card" href="#">
+                    <span class="card-header" style="background-image: url(http://placeimg.com/400/400/people)">
+                        <span class="card-title">
+                            <h3>This is a title for a card</h3>
+                        </span>
+                    </span>
+                    <span class="card-summary">
+                        Using Flexbox is such a an easy, well supported way for grid-style content, such as cards. The cards height will expand to match the longest item.
+                    </span>
+                    <span class="card-meta">
+                        Published: June 18th, 2015
+                    </span>
+                </a>
+
+                <a class="card" href="#">
+                    <span class="card-header" style="background-image: url(http://placeimg.com/400/200/tech);">
+                        <span class="card-title">
+                            <h3>This is a title for a card</h3>
+                        </span>
+                    </span>
+                    <span class="card-summary">
+                        A summary will also be present. Usually two to three brief sentences about the content on the detail page.
+                    </span>
+                    <span class="card-meta">
+                        Published: June 18th, 2015
+                    </span>
+                </a>
+
+                <a class="card" href="#">
+                    <span class="card-header" style="background-image: url(http://placeimg.com/400/200/people);">
+                        <span class="card-title">
+                            <h3>This is a title for a card</h3>
+                        </span>
+                    </span>
+                    <span class="card-summary">
+                        Each card is created from an &lt;a&gt; tag so the whole card is linked.
+                    </span>
+                    <span class="card-meta">
+                        Published: June 18th, 2015
+                    </span>
+                </a>
+
+                <a class="card" href="#">
+                    <span class="card-header" style="background-image: url(http://placeimg.com/400/250/nature);">
+                        <span class="card-title">
+                            <h3>This is a title for a card</h3>
+                        </span>
+                    </span>
+                    <span class="card-summary">
+                        Using Flexbox is such a an easy, well supported way for grid-style content, such as cards. The cards height will expand to match the longest item.
+                    </span>
+                    <span class="card-meta">
+                        Published: June 18th, 2015
+                    </span>
+                </a>
+
+                <a class="card" href="#">
+                    <span class="card-header" style="background-image: url(http://placeimg.com/400/250/animals);">
+                        <span class="card-title">
+                            <h3>This is a title for a card</h3>
+                        </span>
+                    </span>
+                    <span class="card-summary">
+                        A summary will also be present. Usually two to three brief sentences about the content on the detail page.
+                    </span>
+                    <span class="card-meta">
+                        Published: June 18th, 2015
+                    </span>
+                </a>
+
+                <a class="card" href="#">
+                    <span class="card-header" style="background-image: url(http://placeimg.com/600/600/people);">
+                        <span class="card-title">
+                            <h3>This is a title for a card</h3>
+                        </span>
+                    </span>
+                    <span class="card-summary">
+                        Each card is created from an &lt;a&gt; tag so the whole card is linked.
+                    </span>
+                    <span class="card-meta">
+                        Published: June 18th, 2015
+                    </span>
+                </a>
+
+                <a class="card" href="#">
+                    <span class="card-header" style="background-image: url(http://placeimg.com/400/400/tech);">
+                        <span class="card-title">
+                            <h3>This is a title for a card</h3>
+                        </span>
+                    </span>
+                    <span class="card-summary">
+                        Using Flexbox is such a an easy, well supported way for grid-style content, such as cards. The cards height will expand to match the longest item.
+                    </span>
+                    <span class="card-meta">
+                        Published: June 18th, 2015
+                    </span>
+                </a>
             </div>
         </div>
-
-        <script>
-            const panels = document.querySelectorAll('.panel');
-
-            function toggleActive(e) {
-                if(e.propertyName.includes('flex')) {
-                    this.classList.toggle('open-active')
-                }
-            }
-
-            function toggleOpen() {
-                this.classList.toggle('open');
-            }
-            
-            function makeLight() {
-                this.classList.toggle('opaque');
-            }
-
-            panels.forEach(panel => panel.addEventListener('click' , toggleOpen));
-            panels.forEach(panel => panel.addEventListener('transitionend' , toggleActive));
-            panels.forEach(panel => panel.addEventListener('click' , makeLight));
-            
-
-        </script>
-
-
 
     </body>
 </html>
