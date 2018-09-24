@@ -1,4 +1,8 @@
-</style>
+body {
+    background-color: #d0e0e2;
+    text-align: center;
+    
+}
 
 /*STYLES FOR PAGE HEADER*/
 .header {
@@ -56,44 +60,41 @@
 
 
 /*STYLES FOR CARDS*/
-         .wide-card.mdl-card {
-            width: 512px;
-         }
-      
-         .square-card.mdl-card {
-            width: 256px;
-            height: 256px;
-         }
 
-         .image-card.mdl-card {
-            width: 256px;
-            height: 256px;   
-            background: url('html5-mini-logo.jpg') center / cover;          
-         }       
-      
-         .image-card-image__filename {
-            color: #000;
-            font-size: 14px;
-            font-weight: bold;
-         }
+.cards {
+    max-width:800px;
+    text-align: center;
+    
+    display: flex;
+    padding: 3em 6em;
+    margin: 0;
+    list-style:none;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    
 
-         .event-card.mdl-card {
-            width: 256px;
-            height: 256px;
-            background: #3E4EB8;
-         }
-      
-         .event-card.mdl-card__title {
-            color: #fff;
-            height: 176px;
-         }
+}
 
-         .event-card > .mdl-card__actions {
-            border-color: rgba(255, 255, 255, 0.2);
-            display: flex;
-            box-sizing:border-box;
-            align-items: center;
-            color: #fff;
-         }  
+.card.mdl-card {
+    min-width: 128px;
+    min-height: 128px;
+    margin: 5px;
+    padding: 5px;
+    
+    flex: 1;
+    
 
-</style>
+
+}
+
+
+
+
+.event-card > .mdl-card__actions {
+    border-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    box-sizing:border-box;
+    align-items: center;
+    color: #fff;
+}  
+
